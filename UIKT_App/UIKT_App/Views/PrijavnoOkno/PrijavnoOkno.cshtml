@@ -1,0 +1,24 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model UsersModel
+<h2>Prijava</h2>
+
+<div position="absolute" text-aligment="center">
+    <form method="post" posi>
+        <div class="form-group">
+            <label asp-for="username"></label>
+            <input asp-for="username" />
+            <span asp-validation-for="username"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="password"></label>
+            <input asp-for="password" type="password" />
+            <span asp-validation-for="password"></span>
+        </div>
+        <input type="submit" name="poslji" value="Prijava" class="btn-success" id="poslji"/>
+    </form>
+    @Html.Raw(TempData["msg"])
+</div>

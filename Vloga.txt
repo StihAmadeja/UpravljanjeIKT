@@ -1,0 +1,21 @@
+VLOGA
+Ime: Amadeja
+Priimek: Štih
+Datum rojstva: 03/10/2001 00:00:00
+Kraj: Maribor
+Drzavljanstvo: Slovensko
+Vrsta dokumenta: Osebni dokument
+Stevilka: 3211241
+Kje je bil dokument izdan: Maribor
+Kdaj je bil dokument izdan: 01/01/0001 00:00:00
+Do kdaj velja dokument: 01/01/0001 00:00:00
+Naslov prebivalisca v tujini: dsadasd
+Naslov prebivalisca v Sloveniji: dsadasd
+Nacin obvescanja: po pošti
+Poklic/Dejavnost: Veterinarka
+Kvalificiran: true
+Izobrazevalna ustanova: NEKAJ
+Naslov ustanove: dksada
+Drzava ustanove: SLO
+Dodana priloga: PrilogaDiploma.txt
+Dodano dokazilo o placilu: Dokazilo.txt

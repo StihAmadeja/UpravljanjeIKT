@@ -1,0 +1,155 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model ObrazecModel
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        if ('@ViewBag.Message' == 'File Uploaded Successfully') {
+            alert('File Uploaded Successfully');
+        }
+        if ('@ViewBag.Message' == 'File is already exists') {
+            alert('File is already exists');
+        }
+        $('#uloadTable td img.link').live('click', function () {
+            var filename = $(this).parent().parent().parent().attr('id');
+            $(this).parent().parent().parent().remove();
+            $.ajax({
+                type: "post",
+                url: "/FileUpload/RemoveUploadFile?fileName=" + filename,
+                datatype: "json",
+                traditional: true,
+                success: function (data) {
+                    alert('File Deleted');
+                    if (data == 0) {
+                        $('#uloadTable').remove();
+                    }
+                }
+            });
+        });
+    });
+</script>
+<h2>Izpolnjevanje obrazca</h2>
+
+<div position="absolute" text-aligment="center">
+    <form method="post" posi>
+        <div class="form-group">
+            <label asp-for="Ime"></label>
+            <input asp-for="Ime" />
+            <span asp-validation-for="Ime"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Priimek"></label>
+            <input asp-for="Priimek"/>
+            <span asp-validation-for="Priimek"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="DatumRojstva"></label>
+            @Html.EditorFor(m => m.DatumRojstva)
+        </div>
+        <div class="form-group">
+            <label asp-for="KrajRojstva"></label>
+            <input asp-for="KrajRojstva" />
+            <span asp-validation-for="KrajRojstva"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Drzavljanstvo"></label>
+            <input asp-for="Drzavljanstvo" />
+            <span asp-validation-for="Drzavljanstvo"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="OsebniDokument"></label>
+            <input asp-for="OsebniDokument" />
+            <span asp-validation-for="OsebniDokument"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="StevilkaDokumenta"></label>
+            <input asp-for="StevilkaDokumenta" />
+            <span asp-validation-for="StevilkaDokumenta"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="KrajIzdajeDokumenta"></label>
+            <input asp-for="KrajIzdajeDokumenta" />
+            <span asp-validation-for="KrajIzdajeDokumenta"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="DatumIzdajeDokumenta"></label>
+            @Html.EditorFor(m => m.DatumRojstva)
+        </div>
+        <div class="form-group">
+            <label asp-for="DatumVeljavnostiDokumenta"></label>
+            @Html.EditorFor(m => m.DatumRojstva)
+        </div>
+        <div class="form-group">
+            <label asp-for="PrebivalisceTujina"></label>
+            <input asp-for="PrebivalisceTujina" />
+            <span asp-validation-for="PrebivalisceTujina"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="PrebivalisceSLO"></label>
+            <input asp-for="PrebivalisceSLO" />
+            <span asp-validation-for="PrebivalisceSLO"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="TelefonskaStevilka"></label>
+            <input asp-for="TelefonskaStevilka" />
+            <span asp-validation-for="TelefonskaStevilka"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Enaslov"></label>
+            <input asp-for="Enaslov" />
+            <span asp-validation-for="Enaslov"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NacinObvescanje"></label>
+            <input asp-for="NacinObvescanje" type=""/>
+            <span asp-validation-for="NacinObvescanje"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Poklic"></label>
+            <input asp-for="Poklic" />
+            <span asp-validation-for="Poklic"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="JeKvalificiran"></label>
+            <input type="checkbox" asp-for="JeKvalificiran" value="true"/>
+            <span asp-validation-for="JeKvalificiran">DA</span>
+            <input type="checkbox" asp-for="JeKvalificiran" value="false"/>
+            <span asp-validation-for="JeKvalificiran">NE</span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ImeUstanove"></label>
+            <input asp-for="ImeUstanove" />
+            <span asp-validation-for="ImeUstanove"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NaslovUstanove"></label>
+            <input asp-for="NaslovUstanove" />
+            <span asp-validation-for="NaslovUstanove"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="DrzavaUstanove"></label>
+            <input asp-for="DrzavaUstanove" />
+            <span asp-validation-for="DrzavaUstanove"></span>
+        </div>
+        <!-- BUTTON ZA PRILOGO IN DOKAZILO -->
+        <div class="form-group">
+            <label asp-for="Priloga"></label>
+            <input type="file" asp-for="Priloga"/>
+            <span asp-validation-for="Priloga"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Dokazilo"></label>
+            <input type="file" asp-for="Dokazilo" />
+            <span asp-validation-for="Dokazilo"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="DatumOddajeVloge"></label>
+            @Html.EditorFor(m => m.DatumRojstva)
+        </div>
+        <input type="submit" name="poslji" value="Oddaj vlogo" class="btn-success" id="poslji" />
+    </form>
+    @Html.Raw(TempData["msg"])
+</div>
